@@ -1,0 +1,241 @@
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eef2f6; /* 浅灰蓝背景 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* 整体容器：两列布局 */
+.container {
+    display: flex;
+    gap: 30px;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* --- 左侧个人卡片 --- */
+.profile-card {
+    background-color: #fff;
+    width: 280px;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #3b6b9e; /* 深蓝色头像 */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.name {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.role {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.tags span {
+    background-color: #f0f4f8;
+    color: #3b6b9e;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.contact-btn {
+    width: 100%;
+    background-color: #1a365d; /* 深蓝色按钮 */
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: auto; /* 将下方的文字推到底部 */
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #2c5282;
+}
+
+.footer-info {
+    color: #999;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+/* --- 右侧内容区 --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.section-title {
+    color: #1a365d;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-left: 4px solid #1a365d; /* 左侧蓝条装饰 */
+    padding-left: 10px;
+}
+
+.text {
+    color: #555;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* 项目卡片网格 */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 两列 */
+    gap: 15px;
+}
+
+.project-card {
+    border: 1px solid #eee;
+    border-left: 3px solid #3b6b9e;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: #fafbfc;
+}
+
+.project-card h3 {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.project-card p {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* 目标列表 */
+.goals-list {
+    list-style: none;
+}
+
+.goals-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* 使用CSS画出列表前的空心圆圈 */
+.goals-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #3b6b9e;
+    border-radius: 50%;
+}
+
+/* --- 移动端响应式适配 (重点) --- */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* 手机端改为单列 */
+        gap: 20px;
+    }
+    
+    .profile-card {
+        width: 100%; /* 手机端卡片宽度撑满 */
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* 手机端项目卡片单列 */
+    }
+}
+/* 弹窗的样式 */
+.qr-dialog {
+    margin: auto; /* 居中 */
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* 弹窗自带的黑色半透明遮罩背景 */
+.qr-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px); /* 背景稍微模糊 */
+}
+
+.qr-dialog h3 {
+    color: #1a365d;
+    margin-bottom: 15px;
+}
+
+/* 二维码图片大小限制 */
+.qr-img {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* 关闭按钮样式 */
+.close-btn {
+    background-color: #f0f4f8;
+    color: #333;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: #e2e8f0;
+}

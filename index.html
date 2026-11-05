@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈蓝新- 个人介绍页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧个人信息卡片 -->
+        <aside class="profile-card">
+            <div class="avatar">陈</div>
+            <h1 class="name">陈蓝新</h1>
+            <p class="role">2026级软件二班</p >
+            
+            <div class="tags">
+                <span>前端</span>
+                <span>后端</span>
+                <span>硬件调试</span>
+            </div>
+
+            <!-- 按钮部分：加了一个 id 方便 JS 找到它 -->
+            <button class="contact-btn" id="contactBtn">联系我</button>
+            
+            <!-- 弹窗部分：放在页面底部（比如 </body> 之前），默认是隐藏的 -->
+            <dialog id="wechatDialog" class="qr-dialog">
+                <h3>扫一扫加我微信</h3>
+                <img src="weixin.jpg" alt="微信二维码" class="qr-img">
+                <button id="closeBtn" class="close-btn">关闭</button>
+            </dialog>
+            
+            <p class="footer-info">软件技术 · 每周可投入 8h</p >
+        </aside>
+
+        <!-- 右侧主要内容区域 -->
+        <main class="main-content">
+            <!-- 模块一：我是谁 -->
+            <section class="section">
+                <h2 class="section-title">自我评估</h2>
+                <p class="text">
+					1，认真负责，学习能力强，执行力强<br>
+					2，有较好的团队协作意识，能够配合团队完成目标<br>
+					3，做事踏实有耐心，不会轻易放弃
+					</p >
+            </section>
+
+            <!-- 模块二：做过什么 -->
+            <section class="section">
+                <h2 class="section-title">做过什么</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>熟练使用ai</h3>
+                        <p>通过ai的辅助做过一些脚本</p >
+                    </div>
+                    <div class="project-card">
+                        <h3>有计划的学习</h3>
+                        <p>有计划的安排学习的内容，例如每天的英语，高数学习计划</p >
+                    </div>
+                </div>
+            </section>
+
+            <!-- 模块三：六周目标 -->
+            <section class="section">
+                <h2 class="section-title">每周目标</h2>
+                <ul class="goals-list">
+                    <li>一周至少4天有学习高数的计划</li>
+                    <li>每天背诵40个单词</li>
+                    <li>以团队目标制定学习计划，合理安排新旧内容学习时间</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+	<script>
+	    // 找到按钮和弹窗
+	    const contactBtn = document.getElementById('contactBtn');
+	    const wechatDialog = document.getElementById('wechatDialog');
+	    const closeBtn = document.getElementById('closeBtn');
+	
+	    // 点击按钮，显示弹窗
+	    contactBtn.addEventListener('click', () => {
+	        wechatDialog.showModal();
+	    });
+	
+	    // 点击关闭，隐藏弹窗
+	    closeBtn.addEventListener('click', () => {
+	        wechatDialog.close();
+	    });
+	</script>
+</body>
+</html>
